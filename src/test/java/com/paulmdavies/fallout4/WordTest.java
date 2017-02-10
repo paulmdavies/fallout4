@@ -13,7 +13,7 @@ public class WordTest {
     }
 
     @Test
-    public void testSiumilarityShouldBeCalculatedRegardlessOfCase() {
+    public void testSimilarityShouldBeCalculatedRegardlessOfCase() {
         Word foo = new Word("Foo");
         Word far = new Word("far");
         assertEquals(foo.similarity(far), 1);
