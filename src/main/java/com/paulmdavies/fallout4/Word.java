@@ -5,15 +5,13 @@ public class Word {
     private final String word;
 
     public Word(String word) {
-        this.word = word;
+        this.word = word.toLowerCase();
     }
 
     public int similarity(Word otherWord) {
-        String lowerCaseWord = word.toLowerCase();
-        String lowerCaseOtherWord = otherWord.word.toLowerCase();
         int counter = 0;
-        for (int i = 0; i < lowerCaseWord.length(); i++) {
-            if (lowerCaseWord.charAt(i) == lowerCaseOtherWord.charAt(i)) {
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == otherWord.word.charAt(i)) {
                 counter++;
             }
         }
