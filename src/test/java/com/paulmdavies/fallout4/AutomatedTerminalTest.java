@@ -9,30 +9,30 @@ import java.util.List;
 import static org.mockito.Mockito.verify;
 
 
-public class TerminalTest {
+public class AutomatedTerminalTest {
 
     public static final List<Word> ANY_WORDS = Arrays.asList(new Word("test"));
     public static final Word ANY_PASSWORD = null;
 
     @Test(expected = AllPasswordsMustBeOfEqualLengthException.class)
     public void testShouldThrowExceptionIfNotAllWordsAreOfEqualLength() throws AllPasswordsMustBeOfEqualLengthException {
-        new Terminal(Arrays.asList(new Word("foo"), new Word("face")), ANY_PASSWORD);
+        new AutomatedTerminal(Arrays.asList(new Word("foo"), new Word("face")), ANY_PASSWORD);
     }
 
     @Test
     public void testValidateShouldDelegateToPasswordSimilarity() throws CannotCompareWordsOfDifferentLengthsException, AllPasswordsMustBeOfEqualLengthException {
         Word password = Mockito.spy(new Word("test"));
-        Terminal terminal = Mockito.spy(new Terminal(ANY_WORDS, password));
+        AutomatedTerminal automatedTerminal = Mockito.spy(new AutomatedTerminal(ANY_WORDS, password));
 
         Word jeff = new Word("jeff");
-        terminal.validate(jeff);
+        automatedTerminal.validate(jeff);
         verify(password).similarity(jeff);
     }
 
     @Test(expected = CannotCompareWordsOfDifferentLengthsException.class)
     public void testValidateShouldThrowExceptionIfGuessDoesNotMatchPasswordLength() throws CannotCompareWordsOfDifferentLengthsException, AllPasswordsMustBeOfEqualLengthException {
-        Terminal terminal = Mockito.spy(new Terminal(ANY_WORDS, new Word("test")));
+        AutomatedTerminal automatedTerminal = Mockito.spy(new AutomatedTerminal(ANY_WORDS, new Word("test")));
 
-        terminal.validate(new Word("geoff"));
+        automatedTerminal.validate(new Word("geoff"));
     }
 }

@@ -3,11 +3,11 @@ package com.paulmdavies.fallout4;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Terminal {
+public class AutomatedTerminal {
     private final List<Word> words;
     private final Word password;
 
-    public Terminal(List<Word> words, Word password) throws AllPasswordsMustBeOfEqualLengthException {
+    public AutomatedTerminal(List<Word> words, Word password) throws AllPasswordsMustBeOfEqualLengthException {
         this.words = words;
         this.password = password;
 
