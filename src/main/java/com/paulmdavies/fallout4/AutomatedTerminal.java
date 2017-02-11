@@ -3,7 +3,7 @@ package com.paulmdavies.fallout4;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AutomatedTerminal {
+public class AutomatedTerminal implements Terminal {
     private final List<Word> words;
     private final Word password;
 
@@ -17,6 +17,7 @@ public class AutomatedTerminal {
         }
     }
 
+    @Override
     public int validate(Word guess) throws CannotCompareWordsOfDifferentLengthsException {
         return password.similarity(guess);
     }
