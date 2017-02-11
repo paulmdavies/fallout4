@@ -21,4 +21,15 @@ public class Word {
         }
         return counter;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "word='" + word + '\'' +
+                '}';
+    }
+
+    public int length() {
+        return word.length();
+    }
 }

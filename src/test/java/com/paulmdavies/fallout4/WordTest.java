@@ -26,4 +26,11 @@ public class WordTest {
 
         foo.similarity(face);
     }
+
+    @Test
+    public void testLengthShouldReturnLengthOfUnderlyingWord() {
+        Word foo = new Word("foo");
+
+        assertEquals(foo.length(), 3);
+    }
 }
